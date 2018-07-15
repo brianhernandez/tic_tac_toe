@@ -1,0 +1,29 @@
+{
+  "name": "tic_tac_toe",
+  "version": "1.0.0",
+  "description": "A Tic-tac-toe game made with html/css and jQuery.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianhernandez/tic_tac_toe.git"
+  },
+  "keywords": [
+    "jQuery"
+  ],
+  "author": "Brian Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianhernandez/tic_tac_toe/issues"
+  },
+  "homepage": "https://github.com/brianhernandez/tic_tac_toe#readme",
+  "devDependencies": {
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
