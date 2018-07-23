@@ -4,7 +4,8 @@
   "description": "A Tic-tac-toe game made with html/css and jQuery.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,11 @@
   },
   "homepage": "https://github.com/brianhernandez/tic_tac_toe#readme",
   "devDependencies": {
-    "webpack": "^4.16.0",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
