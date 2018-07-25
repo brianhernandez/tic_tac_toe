@@ -5,28 +5,33 @@ window.$ = $;
 window.jQuery = jQuery;
 
 $(document).ready(function() {
-  var userSymbol = "X";
-  var computerSymbol = "0";
-  var tictactoeArray = ['*','*','*','*','*','*','*','*','*',];
+  var userSymbol = "close";//"X";
+  var computerSymbol = "panorama_fish_eye";//"0";
+  var tictactoeArray = ['','','','','','','','','',];
   var gameState = false;
   var count = 0;
 
   $('.container').click(function(event) {
     event.preventDefault();
+
     if ($(event.target).is('#x-button')) {
-      userSymbol = "X";
-      computerSymbol = "O";
+      userSymbol = "close"//"X";
+      computerSymbol = "panorama_fish_eye"//"O";
       $('#x-button').addClass('btn-primary');
       $('#o-button').removeClass('btn-primary');
       resetGame();
     } else if ($(event.target).is('#o-button')) {
-      userSymbol = "O";
-      computerSymbol = "X";
+      userSymbol = "panorama_fish_eye"//"O";
+      computerSymbol = "close"//"X";
       $('#o-button').addClass('btn-primary');
       $('#x-button').removeClass('btn-primary');
       resetGame();
     } else if ($(event.target).is('.reset')) {
       resetGame();
+    }
+
+    if (gameState) {
+      return alert("Please restart the game.");
     }
 
     if ($(event.target).is('.tic')) {
@@ -36,17 +41,18 @@ $(document).ready(function() {
 
     function playerTurn(symbol, id) {
       var slotValue = $('#' + id).text();
-      
-      if (slotValue === '*') {
+
+      if (slotValue === '') {
         count++;
         tictactoeArray[id - 1] = symbol;
         $('#' + id).text(symbol);
+        $('#' + id).removeClass('open');
+        $('#' + id).addClass('material-icons');
         doWeHaveAWinner(tictactoeArray, symbol);
 
         if (gameState === false) {
           computerTurn(computerSymbol);
           doWeHaveAWinner(tictactoeArray, computerSymbol);
-          console.log(tictactoeArray);
         }
       }
     }
@@ -54,13 +60,15 @@ $(document).ready(function() {
     function computerTurn(symbol) {
       var slotTaken = false;
 
-      while(slotTaken === false && count < 6) {
+      while(slotTaken === false && count < 12) {
         var computersChoiceSlot = (Math.random() * 10).toFixed();
         var moveSlotText = $('#' + computersChoiceSlot).text();
 
-        if (moveSlotText === '*') {
+        if (moveSlotText === '') {
           slotTaken = true;
           $('#' + computersChoiceSlot).text(symbol);
+          $('#' + computersChoiceSlot).removeClass('open');
+          $('#' + computersChoiceSlot).addClass('material-icons');
           tictactoeArray[computersChoiceSlot - 1] = symbol;
         }
       }
@@ -118,11 +126,12 @@ $(document).ready(function() {
     }
 
     function resetGame() {
-      tictactoeArray = ['*','*','*','*','*','*','*','*','*',];
+      tictactoeArray = ['','','','','','','','','',];
       count = 0;
-      $('.tic').text('*');
+      $('.tic').text('').addClass('open');
       $('.winning-tile').removeClass('winning-tile');
-      gameState = true;
+      $('.material-icons').removeClass('material-icons');
+      gameState = false;
     }
   });
 });

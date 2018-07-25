@@ -21,13 +21,18 @@ a:hover {
 /********************
   Tic Tac Toe Board
 ********************/
-
+// close, clear
+// panorama fish eye
 .row:first-of-type {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .tic {
-  padding: 60px;
+  // padding: 60px;
+  min-height: 120px;
+  // max-height: 120px;
+  min-width: 120px;
+  // max-width: 120px;
   border: 1px solid grey;
   border-top:none;
   display: inline-block;
@@ -45,16 +50,28 @@ a:hover {
 }
 
 
-.tic:hover {
+.tic.open:hover {
   background-color: rgb(210, 236, 255);
 }
 
-.col-md-6 {
+.col-sm-10,
+.col-md-8,
+.col-lg-6 {
   line-height: 0;
+}
+
+.col-sm-10 a:hover,
+.col-md-8 a:hover,
+.col-lg-6 a:hover {
+  color: #007bff;
 }
 
 .winning-tile {
   background-color: rgb(188, 244, 220);
+}
+
+.material-icons {
+  font-size: 110px;
 }
 
 /********************
@@ -63,7 +80,7 @@ a:hover {
 
 .reset {
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   padding: 8px;
